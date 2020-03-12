@@ -8,9 +8,11 @@ import urllib.parse, urllib.request, json, pickle
 app = Flask(__name__) # template_folder='templates')
 app.secret_key = "Mahasweta" 
 
-# DATABASE_URL = os.environ['postgres://zkvnnuzjbkrvei:b9145a3abf21759c02459220870bf2e51acfdb841229b756fddf01d2cfd4b8ac@ec2-3-234-169-147.compute-1.amazonaws.com:5432/da53sdcn4i1aba']
+DATABASE_URL = os.environ['postgres://zkvnnuzjbkrvei:b9145a3abf21759c02459220870bf2e51acfdb841229b756fddf01d2cfd4b8ac@ec2-3-234-169-147.compute-1.amazonaws.com:5432/da53sdcn4i1aba']
 
-# conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+
+
 # image_path = "https://storage.cloud.google.com/procvaxx/"
 
 background = os.path.join(os.path.dirname(__file__),"static","images","background.png")
