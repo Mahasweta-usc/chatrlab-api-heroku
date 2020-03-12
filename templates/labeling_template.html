@@ -1,0 +1,102 @@
+<html>
+<head>
+  <title>
+    Survey
+  </title>
+<b><h1 align=center style="margin: 1cm 0cm 1cm 0cm;"> <font face="Copperplate" font=7 color = "white"> CHATRLAB </font></h1></b>
+</head>
+<style>
+body {
+ background: rgb(195,230,233);
+background: linear-gradient(90deg, rgba(195,230,233,0.9290091036414566) 9%, rgba(0,212,255,1) 100%);
+ /*background-repeat: repeat;*/
+ background-position: center;
+}
+* {
+  box-sizing: border-box;
+}
+/* Create two unequal columns that floats next to each other */
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /*width: 50%;*/
+}
+.column {
+  float: left;
+  margin: 0 auto;
+  /*padding: 10px;*/
+}
+
+.left {
+  width: 49vw;
+  height: 80vh;
+  background-color: white;
+  border: #FEFEFE 10px solid;
+  opacity: 1.0;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.right {
+  width: 49vw;
+  height: 80vh;
+  /*padding: 200px;*/
+  background-color: white;
+  border: #FEFEFE 50px solid;
+  opacity: 0.8;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  /*clear: both;*/
+}
+</style>
+
+<body>
+<div class="row">
+<div class="column left">
+  <figure>
+    <img src= {{ image }}
+           width="500" 
+           height="500"
+           alt="Image"
+           border="3"
+           class="center"> 
+      {% autoescape false %}
+      <figcaption>{{ text }}</figcaption>>
+      {% endautoescape %}
+  </figure>
+</div>
+<div class="column right">
+    <h1 align=center style="margin: 1cm 0cm 1cm 0cm;">Vaccine Misinformation Annotation</h1>
+    <form action="input" method="post">
+      <h3>What do you believe is the attitude of the post?</h3>
+      
+        <input type="radio" name="senti" value=-1> Anti-vaccine <br>
+        <input type="radio" name="senti" value=1> Pro-vaccine<br>
+        <input type="radio" name="senti" value=0 > Neutral<br>
+      
+      <h3>Do you think it qualifies as misinformation?</h3>
+        <input type="radio" name="label" value=1> Misinformation <br>
+        <input type="radio" name="label" value=2> Controversial<br>
+        <input type="radio" name="label" value=3> Clean<br>   
+        </p><br /><p>
+  
+      <input type='submit' name="action" value='Submit'>
+      <input type='submit' name="action" value='Skip'>
+      <input type='submit' name="action" value='Delete'>
+ 
+    </form>
+   
+  </p><br /><br /><p>
+  </p>Posts Completed by {{ name }} : {{ count }} <p>
+  </p><br /><p>
+  <!-- <b>{{ status }}</b>  -->
+  
+</div>
+</div>
+</body>
+</html>

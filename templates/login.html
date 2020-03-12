@@ -1,0 +1,44 @@
+<html>
+<head>
+  <title>
+    Login
+  </title>
+<b><h1 align=center style="margin: 1cm 0cm 0.5cm 0cm;"> <font face="Copperplate" font=7 color = "white"> CHATRLAB </font></h1></b>
+</head>
+<style>
+  body {
+ background: rgb(195,230,233);
+background: linear-gradient(90deg, rgba(195,230,233,0.9290091036414566) 9%, rgba(0,212,255,1) 100%);
+ /*background-repeat: repeat;*/
+ background-position: center;
+  }
+		* {
+  box-sizing: border-box;
+		}
+		.searchbox2 {
+		font-size: 24px;
+		/*background-color: white;*/
+		/*opacity: 0;*/
+		padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+		}
+		.searchbox2 input{
+    font-size: 24px;
+		}
+	</style>
+  <body> 
+  </p><br /><br /><p>
+	<div class="searchbox2">      
+      <form action = "login" method = "post" align = "center"> 
+         <p>Enter Name:</p> 
+         <p><input name = "nm" /></p> 
+         <p><input type = "submit" /></p> 
+      </form> 
+      <p align="center" style="color:Tomato;">{{ warning }} </p>      
+   </body> 
+</div>
+</html> 

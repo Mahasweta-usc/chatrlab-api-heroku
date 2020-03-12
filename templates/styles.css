@@ -1,0 +1,9 @@
+body {
+ background-image: url(/static/images/background.jpg); 
+ background-repeat: repeat;
+ background-position: center;
+}
+/*h1 {
+    font-size: 36px;
+    line-height: 40px;
+}*/
