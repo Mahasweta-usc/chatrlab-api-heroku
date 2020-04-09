@@ -1,4 +1,5 @@
 import os, sys
+import urllib, requests
 import psycopg2
 from google.cloud import storage
 from flask import Flask, request, session, render_template, redirect, url_for
@@ -8,9 +9,9 @@ import urllib.parse, urllib.request, json, pickle
 app = Flask(__name__) # template_folder='templates')
 app.secret_key = "Mahasweta" 
 
-DATABASE_URL = os.environ['DATABASE_URL']
+# DATABASE_URL = os.environ['DATABASE_URL']
 
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+# conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 
 # image_path = "https://storage.cloud.google.com/procvaxx/"
@@ -181,6 +182,35 @@ def form_update():
 @app.route('/finish')
 def finish():
 	return "Annotations Complete. Thank You"
+
+	#mturk
+
+@app.route('/instructions')
+def instructions():
+	return render_template('instructions.html')
+
+@app.route('/<file>')
+def display(file):
+	# domain = "https://storage.cloud.google.com/labeled_vaxx/"
+	domain_image = "https://storage.cloud.google.com/procvaxx/"
+	# url = domain + file
+	# print(url)
+	image_file = file.strip("xxx-").replace("json","png")
+	url_image = domain_image + image_file
+	print(url_image)
+	contents = read_json(file)
+	# print(r.status_code)
+	# contents = r.json()
+	try:
+		caption = contents["node"]["edge_media_to_caption"]["edges"][0]["node"]["text"]
+	except:
+		caption = ""
+	try:
+		image_text = contents['embed_text']
+	except:
+		image_text = "None"
+	args = {"caption": caption,"image":url_image,"image_text":image_text}
+	return render_template('info.html',**args)
 
 
 
