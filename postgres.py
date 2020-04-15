@@ -10,7 +10,7 @@ from psycopg2 import sql
 
 def initiate():
 	DATABASE_URL = os.environ['DATABASE_URL']
-	connection = (DATABASE_URL, sslmode='require')
+	connection = psycopg2.connect(DATABASE_URL, sslmode='require')
 	cur = connection.cursor()
 	try:
 		postgres_insert_query = """ SELECT * FROM instagram """
@@ -21,7 +21,7 @@ def initiate():
 
 	try:
 		cur.close()
-		connection = (DATABASE_URL, sslmode='require')
+		connection = psycopg2.connect(DATABASE_URL, sslmode='require')
 		cursor = connection.cursor()
 		create_table_query = '''CREATE TABLE instagram
 		      (ID TEXT PRIMARY KEY,
@@ -34,7 +34,7 @@ def initiate():
 
 	try:
 		cursor.close()
-		connection = (DATABASE_URL, sslmode='require')	
+		connection = psycopg2.connect(DATABASE_URL, sslmode='require')	
 		cursor = connection.cursor()
 		data = pd.read_csv('samples.csv')
 		for ind in data.index:
@@ -50,7 +50,7 @@ def initiate():
 
 def start(username):
 	DATABASE_URL = os.environ['DATABASE_URL']
-	connection = (DATABASE_URL, sslmode='require')
+	connection = psycopg2.connect(DATABASE_URL, sslmode='require')
 	cur = connection.cursor()
 	#find username index
 	postgres_insert_query = """SELECT * FROM instagram limit 0"""
@@ -75,7 +75,7 @@ def start(username):
 def add_column(username):
 	DATABASE_URL = os.environ['DATABASE_URL']
 	try:
-		connection = (DATABASE_URL, sslmode='require')
+		connection = psycopg2.connect(DATABASE_URL, sslmode='require')
 		curs = connection.cursor()
 		curs.execute('ALTER TABLE %s ADD COLUMN %s text' % ('instagram', username))
 		connection.commit()
@@ -86,7 +86,7 @@ def add_column(username):
 #return details of a post
 def retrieve(file):
 	DATABASE_URL = os.environ['DATABASE_URL']
-	connection = (DATABASE_URL, sslmode='require')
+	connection = psycopg2.connect(DATABASE_URL, sslmode='require')
 	cursor = connection.cursor()
 	query = "SELECT * FROM instagram WHERE ID = CAST(%s AS TEXT)"
 	cursor.execute(query, (file,))
@@ -98,7 +98,7 @@ def retrieve(file):
 #save response
 def save(file,username,action):
 	DATABASE_URL = os.environ['DATABASE_URL']
-	connection = (DATABASE_URL, sslmode='require')
+	connection = psycopg2.connect(DATABASE_URL, sslmode='require')
 	cursor = connection.cursor()
 	query = sql.SQL("UPDATE instagram SET {} = CAST(%s AS TEXT) WHERE ID = CAST(%s AS TEXT)")
 	query = query.format(sql.Identifier(username))
@@ -109,7 +109,7 @@ def save(file,username,action):
 
 def remove(file):
 	DATABASE_URL = os.environ['DATABASE_URL']
-	connection = (DATABASE_URL, sslmode='require')
+	connection = psycopg2.connect(DATABASE_URL, sslmode='require')
 	cursor = connection.cursor()
 	sql_delete_query = """DELETE FROM instagram WHERE ID = CAST(%s AS TEXT)"""
 	cursor.execute(sql_delete_query, (file, ))
