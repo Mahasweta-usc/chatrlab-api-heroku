@@ -9,13 +9,13 @@ import urllib.parse, urllib.request, json, pickle
 app = Flask(__name__) # template_folder='templates')
 app.secret_key = "Mahasweta" 
 
-# DATABASE_URL = os.environ['DATABASE_URL']
+DATABASE_URL = os.environ['DATABASE_URL']
 
-# conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 
-# image_path = "https://storage.cloud.google.com/procvaxx/"
 
+image_path = "https://storage.cloud.google.com/procvaxx/"
 background = os.path.join(os.path.dirname(__file__),"static","images","background.png")
 dir_name = os.path.join(os.path.dirname(__file__),"static","images")
 test = os.listdir(dir_name)

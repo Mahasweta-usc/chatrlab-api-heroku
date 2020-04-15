@@ -3,100 +3,165 @@
   <title>
     Survey
   </title>
-<b><h1 align=center style="margin: 1cm 0cm 1cm 0cm;"> <font face="Copperplate" font=7 color = "white"> CHATRLAB </font></h1></b>
 </head>
 <style>
-body {
+body{
+  position:relative;
+   margin:0 auto; 
+   height: 100%;
+ background-position: center;
+ background-color: rgb(195,230,233);
+ }
+
+ p{
+    padding: 0.5cm 0.5cm 0.5cm;
+    font-weight: 200;
+ }
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 1em 0 0.5em 0;
+  font-weight: normal;
+  position: relative;
+  text-shadow: 0 -1px rgba(0,0,0,0.6);
+  font-size: 28px;
+  line-height: 40px;
+  background: #355681;
+  background: rgba(53,86,129, 0.8);
+  border: 1px solid #fff;
+  padding: 5px 15px;
+  color: white;
+  border-radius: 0 10px 0 10px;
+  box-shadow: inset 0 0 5px rgba(53,86,129, 0.5);
+  font-family: 'Muli', sans-serif;
+}
+
+figure {
+    display: inline-block;
+    background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  /*color: white;*/
+  width:100%;
+  
+     
+}
+figure img {
+    vertical-align: top;
+    margin: 1cm;
+    margin-left: 1cm;
+    margin-right: 2cm;
+}
+figure figcaption {
+    border: 5px ;
+    color: black;
+    background-color: rgb(255, 255, 224);
+    text-align: center;
+    padding: 1cm 1cm 1cm;
+    margin: 1cm 0cm 1cm;
+    margin-left: 1cm;
+    margin-right: 2cm;
+    overflow: scroll;
+  overflow-x: hidden;
+  height:50%;
+    /*margin-bottom: 1cm;*/
+}
+/* Create two unequal columns that floats next to each other */
+ .bg-image {
+  height: 100%;
+  width: 100%
  background: rgb(195,230,233);
 background: linear-gradient(90deg, rgba(195,230,233,0.9290091036414566) 9%, rgba(0,212,255,1) 100%);
  /*background-repeat: repeat;*/
  background-position: center;
 }
-* {
-  box-sizing: border-box;
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
 }
-/* Create two unequal columns that floats next to each other */
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  /*width: 50%;*/
-}
-.column {
-  float: left;
-  margin: 0 auto;
-  /*padding: 10px;*/
-}
-
-.left {
-  width: 49vw;
-  height: 80vh;
-  background-color: white;
-  border: #FEFEFE 10px solid;
-  opacity: 1.0;
+.left{
+    left:0;
+    height:100%;
   overflow: scroll;
   overflow-x: hidden;
+  color:black;
+  text-align: center;
 }
-
-.right {
-  width: 49vw;
-  height: 80vh;
-  /*padding: 200px;*/
-  background-color: white;
-  border: #FEFEFE 50px solid;
-  opacity: 0.8;
+.right{
+  right:0;
+  overflow: scroll;
+  overflow-x: hidden;
+  background-color:white;
+  text-align:left;
+  height:100%;
+  padding: 1cm 1cm 1cm;
+  
 }
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  /*clear: both;*/
+.center {
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+   width: 100%;
+   height:80%;
+  margin-bottom:auto;
 }
 </style>
 
+
+<!-- <b><h1 align=center > <font face="Copperplate" font=7 color = "black"> CHATRLAB </font></h1></b> -->
 <body>
-<div class="row">
-<div class="column left">
+<b><h1>Vaccine Misinformation Archive <div style="float:right;font-size:14px;">CHATRLAB</div></h1></b>
+<!-- <div class="bg-image"></div> -->
+<div class="center">
+
+<div class="split left">
   <figure>
     <img src= {{ image }}
            width="500" 
            height="500"
            alt="Image"
-           border="3"
-           class="center"> 
-      {% autoescape false %}
-      <figcaption>{{ text }}</figcaption>>
-      {% endautoescape %}
-  </figure>
-</div>
-<div class="column right">
-    <h1 align=center style="margin: 1cm 0cm 1cm 0cm;">Vaccine Misinformation Annotation</h1>
-    <form action="input" method="post">
-      <h3>What do you believe is the attitude of the post?</h3>
+           border="3"> 
       
-        <input type="radio" name="senti" value=-1> Anti-vaccine <br>
-        <input type="radio" name="senti" value=1> Pro-vaccine<br>
-        <input type="radio" name="senti" value=0 > Neutral<br>
+      <figcaption>Caption:<p>{{caption}}</p></br></br>Rendered Image text:<p>{{image_text}}</p></br></figcaption>
       
-      <h3>Do you think it qualifies as misinformation?</h3>
-        <input type="radio" name="label" value=1> Misinformation <br>
-        <input type="radio" name="label" value=2> Controversial<br>
-        <input type="radio" name="label" value=3> Clean<br>   
-        </p><br /><p>
   
-      <input type='submit' name="action" value='Submit'>
-      <input type='submit' name="action" value='Skip'>
+    <div style="margin-bottom: 1cm;padding-right: 1cm;background-color: white;">
+    <form action="input" method="post">
+      <h3 style="padding-top: 1cm;">What do you believe is the attitude of the post?</h3>
+        
+        <input type="radio" name="label" value=1> Anti-vaccine <br>
+        <input type="radio" name="label" value=0> Not Anti-vaccine<br>
+        <input type="radio" name="label" value=-1 style="margin-bottom: 1cm;"> Ambivalent/Ambiguous/Neutral <br>
+      
+      <input type='submit' name="action" value='Submit' style="margin-right: 0.5cm;">
       <input type='submit' name="action" value='Delete'>
  
     </form>
    
   </p><br /><br /><p>
-  </p>Posts Completed by {{ name }} : {{ count }} <p>
+  Posts Completed by {{ name }} : {{ count }}
   </p><br /><p>
+    </div>
   <!-- <b>{{ status }}</b>  -->
-  
+</figure>
 </div>
+
+<div class="split right">
+  #Instructions
 </div>
+
+
+</div>
+
 </body>
 </html>
