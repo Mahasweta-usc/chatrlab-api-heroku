@@ -86,9 +86,11 @@ def update():
 
 		elif request.form.get('action') == "Submit":
 			label = request.form.get('label',None)
+			misinf = request.form.get('misinf',None)
 			# print(label,type(label))
-			if label:
-				save(session["file"],session["name"],label)
+			if label and misinf:
+				out = str(label) + str(misinf)
+				save(session["file"],session["name"],out)
 
 	clean() #remove images
 	
@@ -108,8 +110,6 @@ def update():
 @app.route('/finish')
 def finish():
 	return "Annotations Complete. Thank You"
-
-
 
 if __name__ == '__main__':
     app.run()
