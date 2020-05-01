@@ -81,8 +81,8 @@ def update():
 	
 	if 'action' in request.form:
 
-		if request.form.get('action') == "Delete":
-			remove(session["file"])
+		if request.form.get('action') == "Irrelevant":
+			save(session["file"],session["name"],"N/A")
 
 		elif request.form.get('action') == "Submit":
 			label = request.form.get('label',None)
