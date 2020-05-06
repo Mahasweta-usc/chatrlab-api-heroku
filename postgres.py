@@ -62,6 +62,7 @@ def start(username):
 	postgres_insert_query = """SELECT * FROM instagram ORDER BY ID"""
 	cur.execute(postgres_insert_query)          
 	ver = cur.fetchall()
+	cur.close()
 	empty = [elem for elem in ver if not elem[index]] #yet to be completed
 
 	# print(len(empty),index,colnames)
