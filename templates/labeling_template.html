@@ -5,7 +5,8 @@
 </title>
 </head>
 <style>
-  html{  
+  body,html{  
+    margin:0 auto;
  background-position: center;
  background-color: rgb(195,230,233);
   }
@@ -24,10 +25,11 @@ h1 {
   background: #355681;
   background: rgba(53,86,129, 0.8);
   border: 1px solid #fff;
-  padding: 5px 15px;
+  /*padding: 0px 15px;*/
   color: white;
   font-family: 'Helvetica', 'Times New Roman', sans-serif;
   width:100%;
+  /*margin:0;*/
 }
 
 figure {
@@ -49,17 +51,13 @@ figure figcaption {
     color: black;
     background-color: rgb(255, 255, 224);
     text-align: center;
-    padding: 1cm 1cm 1cm;
+    padding: 3rem 3rem 3rem;
     margin-bottom: 0;
     overflow: scroll;
   overflow-x: hidden;
     height: 500px;
   /*border-left:1px solid black;*/
   position: relative;
-}
-.segments{
-    margin:1cm;
-    text-align:left;
 }
 .pane1{
   left:0;
@@ -73,16 +71,28 @@ figure figcaption {
   overflow: hidden;
   background-color:white;
   text-align:left;
-  padding: 1cm 1cm 1cm;
+  padding: 3rem 3rem 3rem;
   border-right: 3px solid gray;
 }
 .row{
-  width: 100%;
-  /*height: 100%;*/
+  /*width: 100%;
+  height: auto;
   position: relative;
   height:auto;
   border: 3px solid gray;
-  /*overflow-y:hidden;*/
+  
+  overflow:hidden;*/
+
+  font-weight: bold;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  height: 100%;  
+  margin:0 auto;
+  overflow:hidden;
 }
 
 .row:after {
@@ -98,32 +108,21 @@ figure figcaption {
     float:right;
   width:70%;
   height: 100%;
-  /*background-color: white;*/
   margin: 0;
   overflow: hidden;
   color:black;
   text-align: center;
   background-color: white;
+  overflow-x: hidden;
+  overflow-y: scroll;
   
 }
-.body {
-  font-weight: bold;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  width: 100%;
-  height:auto;  
-  margin:0;
-  overflow-x:hidden;
-  overflow:scroll;
-}
+
 </style>
 <!--<body>-->
-  <html>
+
 <body> 
-<h1 style="text-align: center;z-index: 2;margin:0;position: relative;">Social Media Vaccine Posts Classification Project</h1>
+  <h1 style="text-align: center;z-index: 2;margin:auto;position: relative;"><p style="font-size: 1.5rem;">Social Media Vaccine Posts Classification Project</p></h1>
 <!--<fieldset>-->
 <div class="row">
 
@@ -137,27 +136,25 @@ figure figcaption {
       <figcaption>Caption:<p>{{caption}}</p></br></br>Rendered Image text:<p>{{image_text}}</p></br></figcaption>
     </figure> 
  <!--<crowd-form>-->
-    <form action="input" method="post" style="padding: 1cm;text-align: left;">
-        <div style="float: left;margin-right: 1cm;display: inline-block;">
+    <form action="input" method="post" style="text-align:left;display:inline;">
+        <div style="margin:1rem;float: left;">
         <h3>What is the attitude of the post?</h3>
         <input type="radio" name="label" value='1'> Anti-vaccine <br>
         <input type="radio" name="label" value='2'> Pro-vaccine<br>
         <input type="radio" name="label" value='3'> Neutral <br>
         </div>
 
-        <div style="float: left;margin-right: 1cm;display: inline-block;">
+        <div style="margin:1rem;float:left">
         <h3>Does the displayed post contain misinformation?</h3>
         <input type="radio" name="misinf" value='a'> Yes <br>
         <input type="radio" name="misinf" value='b'> No<br>
         <input type="radio" name="misinf" value='c'> Not Sure <br>
         </div>
 
-        <div style="float: right;display: inline-block;margin: 1cm;"> 
-        <input type='submit' name="action" value='Submit' style="margin-right: 1cm;font-size: 28px;background-color: rgb(63, 122, 150);color:white;">
-        <input type='submit' name="action" value='Irrelevant' style="background-color:Tomato;
-        color:white;font-size:28px;">
+        <div style="margin-top:4rem;margin-right:1rem;">
+        <input type='submit' name="action" value='Submit' style="font-size:1.5rem;background-color: rgb(63, 122, 150);color:white;margin-right:1rem;margin-left: 1rem;">
+        <input type='submit' name="action" value='Irrelevant' style="background-color:Tomato;color:white;font-size:1.5rem;">
         </div>
-
     </form>
 <!--pan1-->
 </div>  
@@ -186,11 +183,12 @@ please select an option too.<br>
    </div>
 <!--width-->
 </div>
-
+<!-- <div class="row after"></div> -->
 
 <!-- centre -->
-<h1 style='text-align: center;z-index: 2;position: sticky;margin:0;'><p style="font-size: 12px;">CHATRLAB<br>University of California, Davis</p></h1> 
-</body>
+
+<h1 style='text-align: center;z-index: 2;position: relative;margin: auto;'><p style="font-size: 1rem;">CHATRLAB<br>University of California, Davis</p></h1>
+</body> 
 <html>
 
 
