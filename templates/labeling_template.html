@@ -178,7 +178,9 @@ contains misinformation,
 please select an option too.<br>
 3. Respond all questions to proceed. After you answer the questions, please hit the 'Submit' button.<br>
 4. If you see the post is irrelevant to human vaccines, please hit the 'Irrelevant' button. <br><br></p>
-      <p style="font-weight: bold;">Posts Completed by {{ name }} : {{ count }}</p>
+      <!-- <p style="font-weight: bold;">Posts Completed by {{ name }} : {{ count }}</p> -->
+      <label for="file">User Progress:</label>
+      <progress id="file" value={count} max="100"></progress>
 <!--pane2-->
    </div>
 <!--width-->
