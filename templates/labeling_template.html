@@ -179,8 +179,11 @@ please select an option too.<br>
 3. Respond all questions to proceed. After you answer the questions, please hit the 'Submit' button.<br>
 4. If you see the post is irrelevant to human vaccines, please hit the 'Irrelevant' button. <br><br></p>
       <!-- <p style="font-weight: bold;">Posts Completed by {{ name }} : {{ count }}</p> -->
+      <div style="display: inline">
       <label for="file">User Progress:</label>
-      <progress id="file" value={{count}} max="100"></progress>
+      <progress id="file" value={{percent}} max="100"></progress>
+      <b>{{count}}/2000</b>
+    </div>
       <!-- document.getElementById("file").value = {{count}}; -->
 <!--pane2-->
    </div>

@@ -102,8 +102,10 @@ def update():
 	image_path = os.path.join("static","images",session["file"].strip("xxx-").replace("json","png"))
 	#download image
 	download_blob(session["file"].replace(".json",".png"), image_path)
-
-	args = {"name": session['name'],"count": 60,"caption": caption,"image_text":image_text,"image": image_path} 
+	
+	percent = int(session["count"]/2000)
+	args = {"name": session['name'],"count":session["count"],"caption": caption,"image_text":image_text,
+	"image": image_path,"percent":percent} 
 	return render_template('labeling_template.html',**args)
 	
 
