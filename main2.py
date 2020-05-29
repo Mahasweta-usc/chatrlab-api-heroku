@@ -111,7 +111,7 @@ def update():
 
 @app.route('/finish')
 def finish():
-	return "Annotations Complete. Thank You"
+	return render_template('finish.html')
 
 if __name__ == '__main__':
     app.run()

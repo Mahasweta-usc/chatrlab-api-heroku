@@ -1,5 +1,5 @@
 import os, sys
-import urllib, requests
+import urllib, requests,random
 import psycopg2
 from google.cloud import storage
 from flask import Flask, request, session, render_template, redirect, url_for
@@ -59,17 +59,17 @@ def start(username):
 	index = colnames.index(username)
 	
 
-	postgres_insert_query = """SELECT * FROM instagram ORDER BY ID"""
+	postgres_insert_query = """SELECT * FROM instagram"""  #ORDER BY ID
 	cur.execute(postgres_insert_query)          
 	ver = cur.fetchall()
 	cur.close()
 	empty = [elem for elem in ver if not elem[index]] #yet to be completed
 
 	# print(len(empty),index,colnames)
-	if empty:
+	try:
 		count = len(ver) -  len(empty)
-		return (count, empty[0])
-	else:
+		return (count, random.choice(empty))
+	except:
 		return (None,None)
 
 
