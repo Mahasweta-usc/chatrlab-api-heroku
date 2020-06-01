@@ -80,17 +80,19 @@ def update():
 
 	
 	if 'action' in request.form:
+		while 1 :
+			if request.form.get('action') == "Irrelevant":
+				save(session["file"],session["name"],"N/A")
+				break
 
-		if request.form.get('action') == "Irrelevant":
-			save(session["file"],session["name"],"N/A")
-
-		elif request.form.get('action') == "Submit":
-			label = request.form.get('label',None)
-			misinf = request.form.get('misinf',None)
-			# print(label,type(label))
-			if label and misinf:
-				out = str(label) + str(misinf)
-				save(session["file"],session["name"],out)
+			elif request.form.get('action') == "Submit":
+				label = request.form.get('label',None)
+				misinf = request.form.get('misinf',None)
+				# print(label,type(label))
+				if label and misinf:
+					out = str(label) + str(misinf)
+					save(session["file"],session["name"],out)
+					break
 
 	clean() #remove images
 	
