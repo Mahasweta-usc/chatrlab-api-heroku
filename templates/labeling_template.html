@@ -71,6 +71,7 @@ figure figcaption {
   overflow: hidden;
   background-color:white;
   text-align:left;
+  line-height: 1.6;
   padding: 3rem 3rem 3rem;
   border-right: 3px solid gray;
 }
@@ -169,13 +170,14 @@ social media post.<br><br>
 
 1. Please review all components of the post including <b>captions, images and texts</b>, and select an option.<br>
 2. If you think the post contains misinformation, please select an option too.<br>
-3. Respond to <b>both questions to proceed</b>. After answering the questions, please hit the 'Submit' button.<br>
-4. If you see the post is irrelevant to human vaccines, please hit the 'Irrelevant' button. <br>
-5. Your work is saved and annotation resumes when you log back in. <br>
-6. When you annotate a post, you need to look <b>only into the information presented in the post</b>. You do not need to follow external websites or resources.<br><br></p>
+3. When you annotate a post, you need to look <b>only into the information presented in the post</b>. You do not need to follow external websites or resources.<br>
+4. Respond to <b>both questions to proceed</b>. After answering the questions, please hit the 'Submit' button.<br>
+5. If you see the post is irrelevant to human vaccines, please hit the 'Irrelevant' button. <br>
+6. Your work is automatically saved upon submission and annotation resumes when you log back in using your username. <br>
+<br></p>
       <!-- <p style="font-weight: bold;">Posts Completed by {{ name }} : {{ count }}</p> -->
       <div style="display: inline">
-      <label for="file">User Progress:</label>
+      <label for="file">{{name}}'s Progress:</label>
       <progress id="file" value={{percent}} max="100"></progress>
       <b>{{count}}/2000</b>
     </div>
