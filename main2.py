@@ -110,7 +110,7 @@ def update():
 	#download image
 	download_blob(session["file"].replace(".json",".png"), image_path)
 	
-	percent = int(session["count"]/2000)
+	percent = int((session["count"]/2000)*100)
 	args = {"name": session['name'],"count":session["count"],"caption": caption,"image_text":image_text,
 	"image": image_path,"percent":percent} 
 	return render_template('labeling_template.html',**args)
