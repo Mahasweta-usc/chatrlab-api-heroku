@@ -97,8 +97,13 @@ def update():
 	clean() #remove images
 	
 	(session["count"],top) = start(session["name"])
-	if not top:
+	#finish
+	if session["count"] == 2000:
 		return redirect(url_for('finish'))
+		#dummy column
+	elif not top:
+		(session["count"],top) = start(session["name"])
+
 	# print("From main",top)
 	(session["file"],caption,image_text) = top[:3]
 	image_path = os.path.join("static","images",session["file"].strip("xxx-").replace("json","png"))
